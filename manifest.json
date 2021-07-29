@@ -1,0 +1,6 @@
+{
+    "name": "JJV-exchange",
+    "description": "Download and consult exchange dolar data",
+    "version": "1.0",
+    "manifest_version": 1
+}
