@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="icon">
+        <img src="/assets/icon.svg" alt="icon" class="icon-img">
+    </div>
+    <div class="price-section">
+        <p>Precio actual</p>
+        <current-price>
+            <span slot="price"></span>
+            </current-price>
+    </div>
+    <div class="dates">
+        <p>Descargar por rango de fecha</p>
+        <div class="date-range">
+            <p>De: </p>
+            <input type="date" name="" id="">
+            <p>a: </p>
+            <input type="date">
+        </div>
+    </div>
+    <button type="button">Descargar</button>
+    <script type="module" src="./current-price.js"></script>
+    <script>
+        const CURRENT_DOLLAR_INDEX = "https://sidofqa.segob.gob.mx/dof/sidof/indicadores/158/"
+
+        let date = new Date()
+        const formatedDate = (date) => {
+            let formated = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
+
+            return formated
+        }
+
+        const fetchData = async () => {
+                    const currentDate = formatedDate(date)
+                    const apiUrl = `${CURRENT_DOLLAR_INDEX}${currentDate}/${currentDate}`
+
+                    try {
+                        const response = await fetch(apiUrl)
+
+                        const data = await response.json()
+
+                        return data
+                    } catch (error) {
+                        console.log('fetch error', error);
+                    }
+        }
+        
+        const priceSlot = document.querySelector("price")
+
+        const getData = async () => {
+            const data = await fetchData()
+
+            priceSlot.innerText = data[0].value
+
+        }
+    </script>
+</body>
+
+</html>
