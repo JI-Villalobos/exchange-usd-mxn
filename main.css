@@ -32,6 +32,31 @@ body {
     font-weight: bold;
 }
 
+.current-price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    height: 40px;
+}
+
+.current-price .current-symbol {
+    height: 27px;
+    width: 27px;
+    background-color: #207899;
+    color: #F4F3F3;
+    border-radius: 5px 0 0 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.current-price .current-price-update {
+    height: 27px;
+    width: 140px;
+    background-color: #FFFCFC;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
 .dates {
     display: flex;

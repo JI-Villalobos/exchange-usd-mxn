@@ -1,5 +1,5 @@
 
-/*const CURRENT_DOLLAR_INDEX = "https://sidofqa.segob.gob.mx/dof/sidof/indicadores/158/"
+const CURRENT_DOLLAR_INDEX = "https://sidofqa.segob.gob.mx/dof/sidof/indicadores/158/"
 
 let date = new Date()
 const formatedDate = (date) => {
@@ -22,11 +22,30 @@ const fetchData = async () => {
         console.log('fetch error', error);
     }
 
-}*/
+}
 
 
-chrome.runtime.onInstalled.addListener(() => {
+const button = document.querySelector("button[type='button']")
+const p = document.getElementsByClassName("p")
 
-    chrome.storage.sync.set({ CURRENT_DOLLAR_INDEX })
-    console.log("path:" + `: ${CURRENT_DOLLAR_INDEX}`);
+
+const data = async () => {
+    const getData = await fetchData()
+    console.log(getData.ListaIndicadores[0].valor);
+}
+
+
+button.addEventListener("click", () => {
+
 })
+
+
+window.addEventListener("load", () => {
+    console.log("cargando");
+    data()
+})
+/*chrome.runtime.onInstalled.addListener(() => {
+
+    //chrome.storage.sync.set({ CURRENT_DOLLAR_INDEX })
+    console.log("path:" + `: ${CURRENT_DOLLAR_INDEX}`);
+})*/

@@ -14,10 +14,10 @@
         <img src="/assets/icon.svg" alt="icon" class="icon-img">
     </div>
     <div class="price-section">
-        <p>Precio actual</p>
-        <current-price>
-            <span slot="price"></span>
-            </current-price>
+        <p class="p">Precio actual</p><div class="current-price">
+            <p class="current-symbol">$</p>
+            <p class="current-price-update">USD-MXN <slot name="price"></slot></p>
+        </div>
     </div>
     <div class="dates">
         <p>Descargar por rango de fecha</p>
@@ -29,41 +29,7 @@
         </div>
     </div>
     <button type="button">Descargar</button>
-    <script type="module" src="./current-price.js"></script>
-    <script>
-        const CURRENT_DOLLAR_INDEX = "https://sidofqa.segob.gob.mx/dof/sidof/indicadores/158/"
-
-        let date = new Date()
-        const formatedDate = (date) => {
-            let formated = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
-
-            return formated
-        }
-
-        const fetchData = async () => {
-                    const currentDate = formatedDate(date)
-                    const apiUrl = `${CURRENT_DOLLAR_INDEX}${currentDate}/${currentDate}`
-
-                    try {
-                        const response = await fetch(apiUrl)
-
-                        const data = await response.json()
-
-                        return data
-                    } catch (error) {
-                        console.log('fetch error', error);
-                    }
-        }
-        
-        const priceSlot = document.querySelector("price")
-
-        const getData = async () => {
-            const data = await fetchData()
-
-            priceSlot.innerText = data[0].value
-
-        }
-    </script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
