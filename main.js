@@ -26,12 +26,26 @@ const fetchData = async () => {
 
 
 const button = document.querySelector("button[type='button']")
-const p = document.getElementsByClassName("p")
-
+const currentPrice = document.getElementById("price")
 
 const data = async () => {
+    
     const getData = await fetchData()
-    console.log(getData.ListaIndicadores[0].valor);
+    
+    const showData = document.createElement('div')
+    showData.innerHTML = `
+        <p class="current-symbol">$</p>
+        <p class="current-price-update">USD-MXN: ${getData.ListaIndicadores[0].valor}</p>
+    
+        `
+    showData.className = "current-price"   
+
+    /*currentPrice.appendChild(showData)
+
+    console.log(getData.ListaIndicadores[0].valor);*/
+
+
+    return showData
 }
 
 
@@ -40,9 +54,12 @@ button.addEventListener("click", () => {
 })
 
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async (evt) => {
+    evt.preventDefault()
     console.log("cargando");
-    data()
+    const node = await data()
+
+    currentPrice.appendChild(node)
 })
 /*chrome.runtime.onInstalled.addListener(() => {
 
