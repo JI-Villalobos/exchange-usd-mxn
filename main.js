@@ -40,11 +40,6 @@ const data = async () => {
         `
     showData.className = "current-price"   
 
-    /*currentPrice.appendChild(showData)
-
-    console.log(getData.ListaIndicadores[0].valor);*/
-
-
     return showData
 }
 
@@ -61,8 +56,3 @@ window.addEventListener("load", async (evt) => {
 
     currentPrice.appendChild(node)
 })
-/*chrome.runtime.onInstalled.addListener(() => {
-
-    //chrome.storage.sync.set({ CURRENT_DOLLAR_INDEX })
-    console.log("path:" + `: ${CURRENT_DOLLAR_INDEX}`);
-})*/
