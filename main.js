@@ -1,17 +1,5 @@
 const CURRENT_DOLLAR_INDEX = "https://sidofqa.segob.gob.mx/dof/sidof/indicadores/158/"
 const currentPrice = document.getElementById("price")
-const onError = {
-    "messageCode": 200,
-    "response": "OK",
-    "ListaIndicadores": [{
-        "codIndicador": 31659,
-        "codTipoIndicador": 158,
-        "fecha": new Date(),
-        "valor": "N/A"
-    }],
-    "TotalIndicadores": 1
-}
-
 
 const formatedDate = () => {
     let formated = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
@@ -20,6 +8,11 @@ const formatedDate = () => {
 
 }
 
+const splitDash = (dashed) => {
+    let splitted = dashed.split("-")
+    
+    return splitted[2] + "-" + splitted[1] + "-" + splitted[0] 
+}
 
 
 const fetchData = async (initial, final) => {

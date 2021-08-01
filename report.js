@@ -5,14 +5,11 @@ const button = document.querySelector("button[type='button']")
 
 
 
-
-
-
 button.addEventListener("click", async (evt) => {
     evt.preventDefault()
 
-    //const range = await fetchData(initDate.value, finalDate.value)
+    const range = await fetchData(splitDash(initDate.value), splitDash(finalDate.value))
     
-    console.log(initDate.value + ":" + finalDate.value);
+    console.log(range);
 
 })
