@@ -29,7 +29,7 @@ class myData extends HTMLElement{
                 </div>
                 <div>
                     <p>
-                        <slot name="date"></slot>
+                        <slot name="value"></slot>
                     </p>
                 </div>
             </section>
