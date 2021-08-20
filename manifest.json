@@ -8,6 +8,18 @@
     },
     "permissions": ["storage"],
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "/assets/logo.png",
+            "32": "/assets/logo.png",
+            "48": "/assets/logo.png",
+            "128": "/assets/logo.png"
+        }
+    },
+    "icons": {
+        "16": "/assets/logo.png",
+        "32": "/assets/logo.png",
+        "48": "/assets/logo.png",
+        "128": "/assets/logo.png"
     } 
 }
