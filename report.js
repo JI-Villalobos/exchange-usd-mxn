@@ -14,13 +14,13 @@ button.addEventListener("click", async (evt) => {
         const container = document.getElementById("range")
 
         container.innerHTML = `
-            <div>
+            <div class="data">
                 ${response.ListaIndicadores.map(data => 
                     `
-                        <my-data>
-                            <span slot="date">${data.fecha}</span>
-                            <span slot="value">${data.valor}</span>
-                        </my-data> 
+                        <div class="data-press">
+                            <span class="date" slot="date">${data.fecha}</span>
+                            <span class="value" slot="value">${data.valor}</span>
+                        </div> 
                     `
                 ).join('')}
             </div>
