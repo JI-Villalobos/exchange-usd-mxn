@@ -13,7 +13,8 @@ button.addEventListener("click", async (evt) => {
         
         const container = document.getElementById("range")
 
-        container.innerHTML = `
+        if (response.messageCode == 200) {
+            container.innerHTML = `
             <div class="data">
                 ${response.ListaIndicadores.map(data => 
                     `
@@ -25,6 +26,11 @@ button.addEventListener("click", async (evt) => {
                 ).join('')}
             </div>
         `
+        }else {
+            container.innerHTML = `
+                <p class="error">Su petición no pudo ser completada intentelo nuevamente</p>
+            `
+        }
         
 
         console.log(response);
